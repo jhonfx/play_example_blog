@@ -37,7 +37,7 @@ public class UserController extends Controller {
 	}
 	
     public Result newUser() {
-    		return ok(views.html.newUser.render());
+    		return ok(views.html.newuser.render());
     }
     
 	@Transactional

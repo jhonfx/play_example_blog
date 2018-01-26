@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/Juan/Projects/play/testLynxCompliance/conf/routes
-// @DATE:Fri Jan 26 02:12:21 CST 2018
+// @SOURCE:/Users/juanpurata/Projects/play/play_example_blog/conf/routes
+// @DATE:Fri Jan 26 09:24:38 CST 2018
 
 
 package router {

@@ -1,336 +1,94 @@
-2018-01-26 02:03:08,097 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
-2018-01-26 02:03:09,335 [INFO] from play.api.db.HikariCPConnectionPool in ForkJoinPool-1-worker-1 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:03:09,553 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:03:16,314 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
-2018-01-26 02:06:11,207 [ERROR] from application in application-akka.actor.default-dispatcher-19 - 
-
-! @76meobg7f - Internal server error, for (POST) [/post] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[RuntimeException: No EntityManager found in the context. Try to annotate your action method with @play.db.jpa.Transactional]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:293)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:220)
-	at play.api.GlobalSettings$class.onError(GlobalSettings.scala:160)
-	at play.api.DefaultGlobal$.onError(GlobalSettings.scala:188)
-	at play.api.http.GlobalSettingsHttpErrorHandler.onServerError(HttpErrorHandler.scala:100)
-	at play.core.server.netty.PlayRequestHandler$$anonfun$2$$anonfun$apply$1.applyOrElse(PlayRequestHandler.scala:100)
-	at play.core.server.netty.PlayRequestHandler$$anonfun$2$$anonfun$apply$1.applyOrElse(PlayRequestHandler.scala:99)
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:346)
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:345)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
-	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:70)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248)
-	at scala.concurrent.impl.Promise$DefaultPromise.link(Promise.scala:304)
-	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:289)
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:255)
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:91)
-	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
-	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:90)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:415)
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.lang.RuntimeException: No EntityManager found in the context. Try to annotate your action method with @play.db.jpa.Transactional
-	at play.db.jpa.JPAEntityManagerContext.em(JPAEntityManagerContext.java:34)
-	at play.db.jpa.DefaultJPAApi.em(DefaultJPAApi.java:99)
-	at controllers.PostController.addPost(PostController.java:66)
-	at router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(Routes.scala:343)
-	at router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(Routes.scala:343)
-	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:157)
-	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:156)
-	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$14$$anon$3$$anon$1.invocation(HandlerInvoker.scala:136)
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:73)
-	at play.http.HttpRequestHandler$1.call(HttpRequestHandler.java:54)
-	at play.core.j.JavaAction$$anonfun$7.apply(JavaAction.scala:108)
-	at play.core.j.JavaAction$$anonfun$7.apply(JavaAction.scala:108)
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24)
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24)
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
-	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:70)
-	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
-	at scala.concurrent.impl.Future$.apply(Future.scala:31)
-	at scala.concurrent.Future$.apply(Future.scala:494)
-	at play.core.j.JavaAction.apply(JavaAction.scala:108)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:111)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:110)
-	at scala.Option.map(Option.scala:146)
-	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:110)
-	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:103)
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253)
-	... 14 common frames omitted
-2018-01-26 02:08:04,887 [INFO] from application in application-akka.actor.default-dispatcher-18 - Shutting down connection pool.
-2018-01-26 02:08:05,275 [INFO] from application in application-akka.actor.default-dispatcher-18 - Creating Pool for datasource 'default'
-2018-01-26 02:08:05,293 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-18 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:08:05,315 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-18 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:08:06,002 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-18 - Application started (Dev)
-2018-01-26 02:12:47,631 [INFO] from application in application-akka.actor.default-dispatcher-9 - Shutting down connection pool.
-2018-01-26 02:12:48,042 [INFO] from application in application-akka.actor.default-dispatcher-9 - Creating Pool for datasource 'default'
-2018-01-26 02:12:48,062 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-9 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:12:48,088 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-9 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:12:48,894 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-9 - Application started (Dev)
-2018-01-26 02:20:23,013 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
-2018-01-26 02:20:23,455 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
-2018-01-26 02:20:23,495 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-2 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:20:23,519 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:20:24,169 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
-2018-01-26 02:22:48,859 [WARN] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-19 - SQL Error: 1406, SQLState: 22001
-2018-01-26 02:22:48,873 [ERROR] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-19 - Data truncation: Data too long for column 'comment' at row 1
-2018-01-26 02:22:48,883 [ERROR] from org.hibernate.internal.ExceptionMapperStandardImpl in application-akka.actor.default-dispatcher-19 - HHH000346: Error during managed flush [org.hibernate.exception.DataException: could not execute statement]
-2018-01-26 02:22:48,894 [WARN] from com.zaxxer.hikari.pool.ProxyConnection in application-akka.actor.default-dispatcher-19 - HikariPool-4 - Connection com.mysql.jdbc.JDBC4Connection@502a4ea3 marked as broken because of SQLSTATE(08003), ErrorCode(0)
-com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Can't call rollback when autocommit=true
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
-	at com.mysql.jdbc.Util.getInstance(Util.java:386)
-	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1013)
-	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
-	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
-	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:927)
-	at com.mysql.jdbc.ConnectionImpl.rollback(ConnectionImpl.java:4714)
-	at com.zaxxer.hikari.pool.ProxyConnection.rollback(ProxyConnection.java:361)
-	at com.zaxxer.hikari.pool.HikariProxyConnection.rollback(HikariProxyConnection.java)
-	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:114)
-	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:239)
-	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:100)
-	at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:70)
-	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:71)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:158)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:210)
-	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:25)
-	at play.core.j.JavaAction$$anonfun$7.apply(JavaAction.scala:108)
-	at play.core.j.JavaAction$$anonfun$7.apply(JavaAction.scala:108)
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24)
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24)
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
-	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:70)
-	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
-	at scala.concurrent.impl.Future$.apply(Future.scala:31)
-	at scala.concurrent.Future$.apply(Future.scala:494)
-	at play.core.j.JavaAction.apply(JavaAction.scala:108)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:111)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:110)
-	at scala.Option.map(Option.scala:146)
-	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:110)
-	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:103)
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253)
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:91)
-	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
-	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:90)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:415)
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-2018-01-26 02:22:48,903 [ERROR] from application in application-akka.actor.default-dispatcher-19 - 
-
-! @76mf0ga4l - Internal server error, for (POST) [/post] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[RollbackException: Error while committing the transaction]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:293)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:220)
-	at play.api.GlobalSettings$class.onError(GlobalSettings.scala:160)
-	at play.api.DefaultGlobal$.onError(GlobalSettings.scala:188)
-	at play.api.http.GlobalSettingsHttpErrorHandler.onServerError(HttpErrorHandler.scala:100)
-	at play.core.server.netty.PlayRequestHandler$$anonfun$2$$anonfun$apply$1.applyOrElse(PlayRequestHandler.scala:100)
-	at play.core.server.netty.PlayRequestHandler$$anonfun$2$$anonfun$apply$1.applyOrElse(PlayRequestHandler.scala:99)
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:346)
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:345)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
-	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:70)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248)
-	at scala.concurrent.impl.Promise$DefaultPromise.link(Promise.scala:304)
-	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:289)
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:255)
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:91)
-	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
-	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:90)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:415)
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: javax.persistence.RollbackException: Error while committing the transaction
-	at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:75)
-	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:71)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:158)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:210)
-	at play.db.jpa.TransactionalAction.call(TransactionalAction.java:25)
-	at play.core.j.JavaAction$$anonfun$7.apply(JavaAction.scala:108)
-	at play.core.j.JavaAction$$anonfun$7.apply(JavaAction.scala:108)
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24)
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24)
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
-	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:70)
-	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
-	at scala.concurrent.impl.Future$.apply(Future.scala:31)
-	at scala.concurrent.Future$.apply(Future.scala:494)
-	at play.core.j.JavaAction.apply(JavaAction.scala:108)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:111)
-	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:110)
-	at scala.Option.map(Option.scala:146)
-	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:110)
-	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:103)
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253)
-	... 14 common frames omitted
-Caused by: javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement
-	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:147)
-	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:155)
-	at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:56)
-	... 37 common frames omitted
-Caused by: org.hibernate.exception.DataException: could not execute statement
-	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:52)
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:111)
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:97)
-	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:207)
-	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:45)
-	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2949)
-	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3449)
-	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:89)
-	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:586)
-	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:460)
-	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:337)
-	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
-	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1420)
-	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:476)
-	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3179)
-	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2393)
-	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
-	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
-	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
-	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
-	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
-	... 36 common frames omitted
-Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'comment' at row 1
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3607)
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3541)
-	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2002)
-	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2163)
-	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2624)
-	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2127)
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2427)
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2345)
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2330)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:204)
-	... 53 common frames omitted
-2018-01-26 02:26:26,738 [INFO] from application in application-akka.actor.default-dispatcher-56 - Shutting down connection pool.
-2018-01-26 02:26:27,129 [INFO] from application in application-akka.actor.default-dispatcher-56 - Creating Pool for datasource 'default'
-2018-01-26 02:26:27,146 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-56 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:26:27,157 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-56 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:26:27,820 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-56 - Application started (Dev)
-2018-01-26 02:26:48,526 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
-2018-01-26 02:26:48,767 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2018-01-26 02:26:48,816 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-3 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:26:48,834 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:26:49,471 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)
-2018-01-26 02:28:04,005 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
-2018-01-26 02:28:04,181 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2018-01-26 02:28:04,199 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-3 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:28:04,214 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:28:05,131 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)
-2018-01-26 02:37:34,231 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
-2018-01-26 02:37:34,633 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
-2018-01-26 02:37:34,658 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-2 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:37:34,675 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:37:35,492 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
-2018-01-26 02:38:42,145 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
-2018-01-26 02:38:42,310 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2018-01-26 02:38:42,329 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-3 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:38:42,348 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:38:43,028 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)
-2018-01-26 02:40:40,703 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
-2018-01-26 02:40:41,122 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
-2018-01-26 02:40:41,139 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-2 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:40:41,153 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:40:41,684 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
-2018-01-26 02:43:03,901 [INFO] from application in application-akka.actor.default-dispatcher-6 - Shutting down connection pool.
-2018-01-26 02:43:04,275 [INFO] from application in application-akka.actor.default-dispatcher-6 - Creating Pool for datasource 'default'
-2018-01-26 02:43:04,292 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-6 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:43:04,303 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-6 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:43:05,268 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-6 - Application started (Dev)
-2018-01-26 02:43:40,968 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
-2018-01-26 02:43:41,093 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2018-01-26 02:43:41,108 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-3 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:43:41,127 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:43:41,663 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)
-2018-01-26 02:44:07,549 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
-2018-01-26 02:44:07,745 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2018-01-26 02:44:07,756 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-3 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:44:07,799 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:44:08,342 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)
-2018-01-26 02:45:48,896 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
-2018-01-26 02:45:49,447 [INFO] from application in application-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
-2018-01-26 02:45:49,504 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-4 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:45:49,520 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-4 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:45:50,271 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-4 - Application started (Dev)
-2018-01-26 02:46:33,836 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
-2018-01-26 02:46:33,970 [INFO] from application in application-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
-2018-01-26 02:46:33,986 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-4 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:46:34,030 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-4 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:46:34,417 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-4 - Application started (Dev)
-2018-01-26 02:51:42,246 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
-2018-01-26 02:51:42,727 [INFO] from application in application-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
-2018-01-26 02:51:42,747 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-4 - datasource [default] bound to JNDI as DefaultDS
-2018-01-26 02:51:42,761 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-4 - Database [default] connected at jdbc:mysql://localhost/testlynxdb?characterEncoding=UTF-8
-2018-01-26 02:51:43,372 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-4 - Application started (Dev)
-2018-01-26 03:02:59,247 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s300ms).
-2018-01-26 03:12:46,208 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s963ms).
-2018-01-26 03:22:33,167 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s958ms).
-2018-01-26 03:32:50,014 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s839ms).
-2018-01-26 03:42:37,854 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m47s840ms).
-2018-01-26 03:52:24,493 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s639ms).
-2018-01-26 04:02:11,340 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s847ms).
-2018-01-26 04:12:28,318 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s969ms).
-2018-01-26 04:22:16,087 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m47s769ms).
-2018-01-26 04:32:02,897 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s810ms).
-2018-01-26 04:41:49,731 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s834ms).
-2018-01-26 04:51:37,320 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m47s588ms).
-2018-01-26 05:01:55,155 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m47s827ms).
-2018-01-26 05:11:41,845 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s690ms).
-2018-01-26 05:21:28,696 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s851ms).
-2018-01-26 05:31:16,426 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m47s730ms).
-2018-01-26 05:41:33,278 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s847ms).
-2018-01-26 05:51:20,211 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=9m46s933ms).
-2018-01-26 05:53:35,199 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=2m14s988ms).
-2018-01-26 06:04:14,325 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=10m38s528ms).
-2018-01-26 06:15:16,294 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=10m31s836ms).
-2018-01-26 06:26:18,713 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=10m32s408ms).
-2018-01-26 06:37:09,486 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=10m50s757ms).
-2018-01-26 06:48:12,701 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=10m32s909ms).
-2018-01-26 06:58:56,525 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=10m43s807ms).
-2018-01-26 08:26:21,028 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Thread starvation or clock leap detected (housekeeper delta=1h26m53s896ms).
-2018-01-26 08:27:20,676 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-16 housekeeper - HikariPool-16 - Retrograde clock change detected (housekeeper delta=29s634ms), soft-evicting connections from pool.
-2018-01-26 08:28:00,049 [INFO] from application in pool-4-thread-1 - Shutting down connection pool.
+2018-01-26 09:30:27,048 [INFO] from application in ForkJoinPool-1-worker-9 - Creating Pool for datasource 'default'
+2018-01-26 09:30:27,305 [INFO] from play.api.db.HikariCPConnectionPool in ForkJoinPool-1-worker-9 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:30:27,324 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-9 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:30:28,906 [INFO] from play.api.Play in ForkJoinPool-1-worker-9 - Application started (Dev)
+2018-01-26 09:35:04,805 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2018-01-26 09:35:05,097 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2018-01-26 09:35:05,105 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-2 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:35:05,111 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:35:05,277 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
+2018-01-26 09:37:43,919 [INFO] from application in application-akka.actor.default-dispatcher-10 - Shutting down connection pool.
+2018-01-26 09:37:44,189 [INFO] from application in application-akka.actor.default-dispatcher-10 - Creating Pool for datasource 'default'
+2018-01-26 09:37:44,195 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-10 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:37:44,202 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-10 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:37:44,366 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-10 - Application started (Dev)
+2018-01-26 09:42:51,794 [INFO] from application in application-akka.actor.default-dispatcher-14 - Shutting down connection pool.
+2018-01-26 09:42:52,027 [INFO] from application in application-akka.actor.default-dispatcher-14 - Creating Pool for datasource 'default'
+2018-01-26 09:42:52,033 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-14 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:42:52,038 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-14 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:42:52,175 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-14 - Application started (Dev)
+2018-01-26 09:48:07,425 [INFO] from application in application-akka.actor.default-dispatcher-34 - Shutting down connection pool.
+2018-01-26 09:48:07,784 [INFO] from application in application-akka.actor.default-dispatcher-34 - Creating Pool for datasource 'default'
+2018-01-26 09:48:07,790 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-34 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:48:07,795 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-34 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:48:07,919 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-34 - Application started (Dev)
+2018-01-26 09:50:55,975 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2018-01-26 09:50:56,338 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2018-01-26 09:50:56,343 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-2 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:50:56,348 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:50:56,458 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
+2018-01-26 09:52:58,778 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2018-01-26 09:52:59,018 [INFO] from application in application-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
+2018-01-26 09:52:59,023 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-4 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:52:59,028 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-4 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:52:59,133 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-4 - Application started (Dev)
+2018-01-26 09:55:33,301 [INFO] from application in application-akka.actor.default-dispatcher-13 - Shutting down connection pool.
+2018-01-26 09:55:33,566 [INFO] from application in application-akka.actor.default-dispatcher-13 - Creating Pool for datasource 'default'
+2018-01-26 09:55:33,574 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-13 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:55:33,579 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-13 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:55:33,685 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-13 - Application started (Dev)
+2018-01-26 09:56:52,880 [INFO] from application in application-akka.actor.default-dispatcher-11 - Shutting down connection pool.
+2018-01-26 09:56:52,924 [INFO] from application in application-akka.actor.default-dispatcher-11 - Creating Pool for datasource 'default'
+2018-01-26 09:56:52,928 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-11 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:56:52,933 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-11 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:56:53,035 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-11 - Application started (Dev)
+2018-01-26 09:57:26,092 [INFO] from application in application-akka.actor.default-dispatcher-11 - Shutting down connection pool.
+2018-01-26 09:57:26,134 [INFO] from application in application-akka.actor.default-dispatcher-11 - Creating Pool for datasource 'default'
+2018-01-26 09:57:26,140 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-11 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:57:26,145 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-11 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:57:26,255 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-11 - Application started (Dev)
+2018-01-26 09:57:44,122 [INFO] from application in application-akka.actor.default-dispatcher-6 - Shutting down connection pool.
+2018-01-26 09:57:44,177 [INFO] from application in application-akka.actor.default-dispatcher-6 - Creating Pool for datasource 'default'
+2018-01-26 09:57:44,183 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-6 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:57:44,188 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-6 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:57:44,285 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-6 - Application started (Dev)
+2018-01-26 09:59:45,954 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2018-01-26 09:59:46,174 [INFO] from application in application-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
+2018-01-26 09:59:46,180 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-5 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 09:59:46,185 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-5 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 09:59:46,289 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-5 - Application started (Dev)
+2018-01-26 10:00:14,475 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2018-01-26 10:00:14,511 [INFO] from application in application-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
+2018-01-26 10:00:14,516 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-4 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 10:00:14,524 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-4 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 10:00:14,620 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-4 - Application started (Dev)
+2018-01-26 10:00:33,948 [INFO] from application in application-akka.actor.default-dispatcher-10 - Shutting down connection pool.
+2018-01-26 10:00:33,988 [INFO] from application in application-akka.actor.default-dispatcher-10 - Creating Pool for datasource 'default'
+2018-01-26 10:00:33,993 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-10 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 10:00:33,997 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-10 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 10:00:34,110 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-10 - Application started (Dev)
+2018-01-26 10:01:12,577 [INFO] from application in application-akka.actor.default-dispatcher-7 - Shutting down connection pool.
+2018-01-26 10:01:12,615 [INFO] from application in application-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2018-01-26 10:01:12,620 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-7 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 10:01:12,625 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-7 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 10:01:12,720 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-7 - Application started (Dev)
+2018-01-26 10:26:33,414 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-15 housekeeper - HikariPool-15 - Thread starvation or clock leap detected (housekeeper delta=8m50s609ms).
+2018-01-26 10:48:20,422 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-15 housekeeper - HikariPool-15 - Thread starvation or clock leap detected (housekeeper delta=21m16s996ms).
+2018-01-26 11:35:53,851 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-15 housekeeper - HikariPool-15 - Thread starvation or clock leap detected (housekeeper delta=47m3s424ms).
+2018-01-26 11:53:45,279 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-15 housekeeper - HikariPool-15 - Thread starvation or clock leap detected (housekeeper delta=5m16s909ms).
+2018-01-26 12:54:26,288 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-15 housekeeper - HikariPool-15 - Thread starvation or clock leap detected (housekeeper delta=1h11s10ms).
+2018-01-26 13:02:54,547 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-15 housekeeper - HikariPool-15 - Thread starvation or clock leap detected (housekeeper delta=7m58s254ms).
+2018-01-26 13:12:27,865 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-15 housekeeper - HikariPool-15 - Thread starvation or clock leap detected (housekeeper delta=8m33s317ms).
+2018-01-26 13:35:30,669 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-15 housekeeper - HikariPool-15 - Thread starvation or clock leap detected (housekeeper delta=21m32s798ms).
+2018-01-26 13:39:17,239 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-15 housekeeper - HikariPool-15 - Thread starvation or clock leap detected (housekeeper delta=2m46s558ms).
+2018-01-26 13:40:39,202 [INFO] from application in application-akka.actor.default-dispatcher-58 - Shutting down connection pool.
+2018-01-26 13:40:39,247 [INFO] from application in application-akka.actor.default-dispatcher-58 - Creating Pool for datasource 'default'
+2018-01-26 13:40:39,252 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-58 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 13:40:39,257 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-58 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 13:40:39,379 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-58 - Application started (Dev)
+2018-01-26 13:41:27,795 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2018-01-26 13:41:27,829 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2018-01-26 13:41:27,834 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-2 - datasource [default] bound to JNDI as DefaultDS
+2018-01-26 13:41:27,859 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost/blog_demo?characterEncoding=UTF-8
+2018-01-26 13:41:27,949 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
+2018-01-26 13:43:18,800 [INFO] from application in pool-4-thread-6 - Shutting down connection pool.

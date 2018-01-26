@@ -1,22 +1,21 @@
 package controllers;
 
 import static play.libs.Json.toJson;
-
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
 import javax.inject.Inject;
-
-import models.Post;
-import models.User;
 import play.data.FormFactory;
 import play.db.jpa.JPAApi;
 import play.db.jpa.Transactional;
 import play.mvc.*;
+
+import models.Post;
+import models.User;
+
 
 public class PostController extends Controller {
 	
@@ -70,7 +69,7 @@ public class PostController extends Controller {
     
     @Transactional(readOnly=true)
 	public Result getPosts() {
-    		List<Post> posts = (List<Post>) jpaApi.em().createQuery("select p from Post p").getResultList();
+        List<Post> posts = (List<Post>) jpaApi.em().createQuery("select p from Post p").getResultList();
         return ok(toJson(posts));
 	}
     

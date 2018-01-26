@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/Juan/Projects/play/testLynxCompliance/conf/routes
-// @DATE:Fri Jan 26 02:12:21 CST 2018
+// @SOURCE:/Users/juanpurata/Projects/play/play_example_blog/conf/routes
+// @DATE:Fri Jan 26 09:24:38 CST 2018
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -12,6 +12,29 @@ import _root_.play.libs.F
 
 // @LINE:6
 package controllers {
+
+  // @LINE:33
+  class ReverseAssets(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:33
+    def at(file:String): Call = {
+    
+      (file: @unchecked) match {
+      
+        // @LINE:33
+        case (file)  =>
+          implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
+          Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
+      
+      }
+    
+    }
+  
+  }
 
   // @LINE:6
   class ReverseBookController(_prefix: => String) {
@@ -58,6 +81,60 @@ package controllers {
   
   }
 
+  // @LINE:24
+  class ReverseCategoryController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:26
+    def listCategories(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "categories")
+    }
+  
+    // @LINE:25
+    def showCategory(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "showcategories")
+    }
+  
+    // @LINE:24
+    def addCategory(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "category")
+    }
+  
+  }
+
+  // @LINE:16
+  class ReverseUserController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:16
+    def addUser(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "user")
+    }
+  
+    // @LINE:22
+    def getUsers(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "users")
+    }
+  
+    // @LINE:18
+    def newUser(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "newuser")
+    }
+  
+  }
+
   // @LINE:17
   class ReversePostController(_prefix: => String) {
     def _defaultPrefix: String = {
@@ -87,48 +164,6 @@ package controllers {
     def getPosts(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "posts")
-    }
-  
-  }
-
-  // @LINE:29
-  class ReverseAssets(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:29
-    def at(file:String): Call = {
-      implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
-      Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
-    }
-  
-  }
-
-  // @LINE:16
-  class ReverseUserController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:16
-    def addUser(): Call = {
-      import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "user")
-    }
-  
-    // @LINE:22
-    def getUsers(): Call = {
-      import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "users")
-    }
-  
-    // @LINE:18
-    def newUser(): Call = {
-      import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "newuser")
     }
   
   }

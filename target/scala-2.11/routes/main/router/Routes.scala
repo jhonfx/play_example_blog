@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/Juan/Projects/play/testLynxCompliance/conf/routes
-// @DATE:Fri Jan 26 02:12:21 CST 2018
+// @SOURCE:/Users/juanpurata/Projects/play/play_example_blog/conf/routes
+// @DATE:Fri Jan 26 09:24:38 CST 2018
 
 package router
 
@@ -22,8 +22,10 @@ class Routes(
   UserController_1: controllers.UserController,
   // @LINE:17
   PostController_3: controllers.PostController,
-  // @LINE:29
-  Assets_2: controllers.Assets,
+  // @LINE:24
+  CategoryController_2: controllers.CategoryController,
+  // @LINE:33
+  Assets_4: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
 
@@ -35,15 +37,17 @@ class Routes(
     UserController_1: controllers.UserController,
     // @LINE:17
     PostController_3: controllers.PostController,
-    // @LINE:29
-    Assets_2: controllers.Assets
-  ) = this(errorHandler, BookController_0, UserController_1, PostController_3, Assets_2, "/")
+    // @LINE:24
+    CategoryController_2: controllers.CategoryController,
+    // @LINE:33
+    Assets_4: controllers.Assets
+  ) = this(errorHandler, BookController_0, UserController_1, PostController_3, CategoryController_2, Assets_4, "/")
 
   import ReverseRouteContext.empty
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, BookController_0, UserController_1, PostController_3, Assets_2, prefix)
+    new Routes(errorHandler, BookController_0, UserController_1, PostController_3, CategoryController_2, Assets_4, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -64,7 +68,11 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts""", """controllers.PostController.getPosts()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users""", """controllers.UserController.getUsers()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """showposts""", """controllers.PostController.showPosts()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """category""", """controllers.CategoryController.addCategory()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """showcategories""", """controllers.CategoryController.showCategory()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """categories""", """controllers.CategoryController.listCategories()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """images""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -293,12 +301,63 @@ class Routes(
     )
   )
 
-  // @LINE:29
-  private[this] lazy val controllers_Assets_at13_route = Route("GET",
+  // @LINE:24
+  private[this] lazy val controllers_CategoryController_addCategory13_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("category")))
+  )
+  private[this] lazy val controllers_CategoryController_addCategory13_invoker = createInvoker(
+    CategoryController_2.addCategory(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CategoryController",
+      "addCategory",
+      Nil,
+      "POST",
+      """""",
+      this.prefix + """category"""
+    )
+  )
+
+  // @LINE:25
+  private[this] lazy val controllers_CategoryController_showCategory14_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("showcategories")))
+  )
+  private[this] lazy val controllers_CategoryController_showCategory14_invoker = createInvoker(
+    CategoryController_2.showCategory(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CategoryController",
+      "showCategory",
+      Nil,
+      "GET",
+      """""",
+      this.prefix + """showcategories"""
+    )
+  )
+
+  // @LINE:26
+  private[this] lazy val controllers_CategoryController_listCategories15_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("categories")))
+  )
+  private[this] lazy val controllers_CategoryController_listCategories15_invoker = createInvoker(
+    CategoryController_2.listCategories(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CategoryController",
+      "listCategories",
+      Nil,
+      "GET",
+      """""",
+      this.prefix + """categories"""
+    )
+  )
+
+  // @LINE:33
+  private[this] lazy val controllers_Assets_at16_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at13_invoker = createInvoker(
-    Assets_2.at(fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_Assets_at16_invoker = createInvoker(
+    Assets_4.at(fakeValue[String], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -307,6 +366,23 @@ class Routes(
       "GET",
       """ Map static resources from the /public folder to the /assets URL path""",
       this.prefix + """assets/""" + "$" + """file<.+>"""
+    )
+  )
+
+  // @LINE:34
+  private[this] lazy val controllers_Assets_at17_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("images")))
+  )
+  private[this] lazy val controllers_Assets_at17_invoker = createInvoker(
+    Assets_4.at(fakeValue[String], fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Assets",
+      "at",
+      Seq(classOf[String], classOf[String]),
+      "GET",
+      """""",
+      this.prefix + """images"""
     )
   )
 
@@ -391,10 +467,34 @@ class Routes(
         controllers_PostController_showPosts12_invoker.call(PostController_3.showPosts())
       }
   
-    // @LINE:29
-    case controllers_Assets_at13_route(params) =>
+    // @LINE:24
+    case controllers_CategoryController_addCategory13_route(params) =>
+      call { 
+        controllers_CategoryController_addCategory13_invoker.call(CategoryController_2.addCategory())
+      }
+  
+    // @LINE:25
+    case controllers_CategoryController_showCategory14_route(params) =>
+      call { 
+        controllers_CategoryController_showCategory14_invoker.call(CategoryController_2.showCategory())
+      }
+  
+    // @LINE:26
+    case controllers_CategoryController_listCategories15_route(params) =>
+      call { 
+        controllers_CategoryController_listCategories15_invoker.call(CategoryController_2.listCategories())
+      }
+  
+    // @LINE:33
+    case controllers_Assets_at16_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at13_invoker.call(Assets_2.at(path, file))
+        controllers_Assets_at16_invoker.call(Assets_4.at(path, file))
+      }
+  
+    // @LINE:34
+    case controllers_Assets_at17_route(params) =>
+      call(Param[String]("path", Right("/public")), params.fromQuery[String]("file", None)) { (path, file) =>
+        controllers_Assets_at17_invoker.call(Assets_4.at(path, file))
       }
   }
 }

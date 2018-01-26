@@ -5,7 +5,7 @@ import play.twirl.api._
 import play.twirl.api.TemplateMagic._
 
 
-     object newUser_Scope0 {
+     object newuser_Scope0 {
 import models._
 import controllers._
 import play.api.i18n._
@@ -21,7 +21,7 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class newUser extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+class newuser extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
   def apply/*1.2*/():play.twirl.api.HtmlFormat.Appendable = {
@@ -85,11 +85,11 @@ Seq[Any](format.raw/*1.4*/("""
 }
 
 /**/
-object newUser extends newUser_Scope0.newUser
+object newuser extends newuser_Scope0.newuser
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 26 01:58:38 CST 2018
-                  SOURCE: /Users/Juan/Projects/play/testLynxCompliance/app/views/newUser.scala.html
+                  DATE: Fri Jan 26 09:24:38 CST 2018
+                  SOURCE: /Users/juanpurata/Projects/play/play_example_blog/app/views/newuser.scala.html
                   HASH: 4c7f6e2a5bc29dcbe78638a0a9206b87012a105f
                   MATRIX: 742->1|838->3|866->6|890->22|929->24|957->26|1038->81|1052->87|1097->112
                   LINES: 27->1|32->1|34->3|34->3|34->3|35->4|37->6|37->6|37->6
