@@ -88,8 +88,8 @@ Seq[Any](format.raw/*1.4*/("""
 object newuser extends newuser_Scope0.newuser
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 26 09:24:38 CST 2018
-                  SOURCE: /Users/juanpurata/Projects/play/play_example_blog/app/views/newuser.scala.html
+                  DATE: Sun Jan 28 02:48:16 CST 2018
+                  SOURCE: /Users/Juan/Projects/play/testLynxCompliance/app/views/newuser.scala.html
                   HASH: 4c7f6e2a5bc29dcbe78638a0a9206b87012a105f
                   MATRIX: 742->1|838->3|866->6|890->22|929->24|957->26|1038->81|1052->87|1097->112
                   LINES: 27->1|32->1|34->3|34->3|34->3|35->4|37->6|37->6|37->6

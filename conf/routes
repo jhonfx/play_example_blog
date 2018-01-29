@@ -3,15 +3,8 @@
 # Home page
 
 
-GET     /                         controllers.BookController.index()
-POST    /book                     controllers.BookController.addBook()
-GET     /book/:id                 controllers.BookController.getBook(id:Long)
-GET     /books                    controllers.BookController.getBooks()
-GET     /deleteBook/:id           controllers.BookController.deleteBook(id:Long)
-
-POST     /editBook/:id            controllers.BookController.editBook(id:Long)
-
-#POST    /upload                   controllers.BookController.upload()
+GET     /                         controllers.UserController.login()
+GET		/home					 controllers.UserController.index()
 
 POST		/user					controllers.UserController.addUser()	
 POST		/post					controllers.PostController.addPost()							
@@ -25,9 +18,9 @@ POST    /category               controllers.CategoryController.addCategory()
 GET     /showcategories             controllers.CategoryController.showCategory()
 GET     /categories             controllers.CategoryController.listCategories()
 
-
-#After reading play 2.5 documentation as i can see there is no built-in mechanism for handling HTTP delete method nor PUT .
-
+#login
+POST		/login					controllers.UserController.doLogin()
+GET		/logout					controllers.UserController.logout()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

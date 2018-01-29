@@ -91,8 +91,8 @@ Seq[Any](format.raw/*1.4*/("""
 object newpost extends newpost_Scope0.newpost
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 26 09:24:38 CST 2018
-                  SOURCE: /Users/juanpurata/Projects/play/play_example_blog/app/views/newpost.scala.html
+                  DATE: Sun Jan 28 02:48:15 CST 2018
+                  SOURCE: /Users/Juan/Projects/play/testLynxCompliance/app/views/newpost.scala.html
                   HASH: 67c67f382ce76dfa674a2ba43f38bb35caddc695
                   MATRIX: 742->1|838->3|866->6|899->31|938->33|965->34|1020->63|1034->69|1079->94
                   LINES: 27->1|32->1|34->3|34->3|34->3|35->4|35->4|35->4|35->4

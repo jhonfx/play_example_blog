@@ -53,8 +53,8 @@ Seq[Any](format.raw/*1.4*/("""
 object showcategories extends showcategories_Scope0.showcategories
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 26 09:24:38 CST 2018
-                  SOURCE: /Users/juanpurata/Projects/play/play_example_blog/app/views/showcategories.scala.html
+                  DATE: Sun Jan 28 02:48:16 CST 2018
+                  SOURCE: /Users/Juan/Projects/play/testLynxCompliance/app/views/showcategories.scala.html
                   HASH: f29056f72d3a500e77aa77d9a0860f51fe2e7c9b
                   MATRIX: 756->1|852->3|880->6|906->24|945->26|972->27
                   LINES: 27->1|32->1|34->3|34->3|34->3|35->4

@@ -74,8 +74,8 @@ Seq[Any](format.raw/*1.4*/("""
 object addcategory extends addcategory_Scope0.addcategory
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 26 09:24:38 CST 2018
-                  SOURCE: /Users/juanpurata/Projects/play/play_example_blog/app/views/addcategory.scala.html
+                  DATE: Sun Jan 28 02:48:15 CST 2018
+                  SOURCE: /Users/Juan/Projects/play/testLynxCompliance/app/views/addcategory.scala.html
                   HASH: 66337b07b7be446c1d57d21700b8f275b135f108
                   MATRIX: 750->1|846->3|874->6|902->26|941->28|972->33|1027->62|1041->68|1094->101
                   LINES: 27->1|32->1|34->3|34->3|34->3|35->4|35->4|35->4|35->4

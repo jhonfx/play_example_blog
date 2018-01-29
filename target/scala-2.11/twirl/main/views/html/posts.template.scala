@@ -100,8 +100,8 @@ Seq[Any](format.raw/*1.4*/("""
 object posts extends posts_Scope0.posts
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 26 09:24:38 CST 2018
-                  SOURCE: /Users/juanpurata/Projects/play/play_example_blog/app/views/posts.scala.html
+                  DATE: Sun Jan 28 02:48:15 CST 2018
+                  SOURCE: /Users/Juan/Projects/play/testLynxCompliance/app/views/posts.scala.html
                   HASH: c8a2393d191fc37cad2e902c33ac4bbd75e2c78d
                   MATRIX: 738->1|834->3|864->7|943->112|978->121|1493->608|1522->609|1556->616|1636->668|1665->669|1700->677|1860->809|1889->810|1925->819|2145->1012|2173->1013|2208->1021|2276->1062|2304->1063|2339->1071|2367->1072
                   LINES: 27->1|32->1|36->5|39->8|40->9|50->19|50->19|51->20|52->21|52->21|53->22|56->25|56->25|57->26|60->29|60->29|61->30|63->32|63->32|64->33|64->33

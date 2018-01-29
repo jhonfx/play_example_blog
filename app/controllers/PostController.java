@@ -64,7 +64,7 @@ public class PostController extends Controller {
         Date td = new Date();
         post.publicDate = td;
         jpaApi.em().persist(post);
-        return redirect(routes.PostController.showPosts());
+        return redirect("/home");
 	}
     
     @Transactional(readOnly=true)
@@ -74,7 +74,7 @@ public class PostController extends Controller {
 	}
     
     public Result showPosts() {
-    		return ok(views.html.posts.render());
+    		return redirect("/home");
     }
     
     private String getFileExtension(String file) {

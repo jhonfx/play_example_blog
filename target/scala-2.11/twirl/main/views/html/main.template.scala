@@ -38,26 +38,29 @@ Seq[Any](format.raw/*1.32*/("""
         <title>"""),_display_(/*7.17*/title),format.raw/*7.22*/("""</title>
         <link rel="shortcut icon" type="image/png" href=""""),_display_(/*8.59*/routes/*8.65*/.Assets.at("images/favicon.png")),format.raw/*8.97*/("""">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type='text/javascript' src='"""),_display_(/*10.46*/routes/*10.52*/.Assets.at("javascripts/index.js")),format.raw/*10.86*/("""'></script>
+        
         <script src=""""),_display_(/*11.23*/routes/*11.29*/.Assets.at("javascripts/bootstrap.min.js")),format.raw/*11.71*/("""" type="text/javascript"></script>
         <script src=""""),_display_(/*12.23*/routes/*12.29*/.Assets.at("javascripts/jquery.dataTables.min.js")),format.raw/*12.79*/("""" type="text/javascript"></script>
         <script src=""""),_display_(/*13.23*/routes/*13.29*/.Assets.at("javascripts/dataTables.bootstrap.min.js")),format.raw/*13.82*/("""" type="text/javascript"></script>
         <script src=""""),_display_(/*14.23*/routes/*14.29*/.Assets.at("javascripts/dropzone.js")),format.raw/*14.66*/("""" type="text/javascript"></script>
-
-        <link rel="stylesheet" type="text/css" href='"""),_display_(/*16.55*/routes/*16.61*/.Assets.at("stylesheets/bootstrap.min.css")),format.raw/*16.104*/("""'>
-        <link rel="stylesheet" type="text/css" href='"""),_display_(/*17.55*/routes/*17.61*/.Assets.at("stylesheets/dataTables.bootstrap.min.css")),format.raw/*17.115*/("""'>
-        <link rel="stylesheet" type="text/css" href='"""),_display_(/*18.55*/routes/*18.61*/.Assets.at("stylesheets/myModal.css")),format.raw/*18.98*/("""'>
-        <link rel="stylesheet" type="text/css" href='"""),_display_(/*19.55*/routes/*19.61*/.Assets.at("stylesheets/dropzone.css")),format.raw/*19.99*/("""'>
-
-        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
-        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
-
-
+        <script src=""""),_display_(/*15.23*/routes/*15.29*/.Assets.at("javascripts/jsgrid.js")),format.raw/*15.64*/("""" type="text/javascript"></script>
+		
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href='"""),_display_(/*19.55*/routes/*19.61*/.Assets.at("stylesheets/bootstrap.min.css")),format.raw/*19.104*/("""'>
+        <link rel="stylesheet" type="text/css" href='"""),_display_(/*20.55*/routes/*20.61*/.Assets.at("stylesheets/dataTables.bootstrap.min.css")),format.raw/*20.115*/("""'>
+        <link rel="stylesheet" type="text/css" href='"""),_display_(/*21.55*/routes/*21.61*/.Assets.at("stylesheets/myModal.css")),format.raw/*21.98*/("""'>
+        <link rel="stylesheet" type="text/css" href='"""),_display_(/*22.55*/routes/*22.61*/.Assets.at("stylesheets/dropzone.css")),format.raw/*22.99*/("""'>
+        <link rel="stylesheet" type="text/css" href='"""),_display_(/*23.55*/routes/*23.61*/.Assets.at("stylesheets/jsgrid-theme.css")),format.raw/*23.103*/("""'>
+        <link rel="stylesheet" type="text/css" href='"""),_display_(/*24.55*/routes/*24.61*/.Assets.at("stylesheets/jsgrid.css")),format.raw/*24.97*/("""'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script src="https://unpkg.com/ag-grid/dist/ag-grid.min.js"></script>
+        <script type='text/javascript' src='"""),_display_(/*27.46*/routes/*27.52*/.Assets.at("javascripts/index.js")),format.raw/*27.86*/("""'></script>
     </head>
     <body>
-        """),_display_(/*28.10*/content),format.raw/*28.17*/("""
-    """),format.raw/*29.5*/("""</body>
+		"""),_display_(/*30.4*/content),format.raw/*30.11*/(""" 		
+    """),format.raw/*31.5*/("""</body>
+    
 </html>
 """))
       }
@@ -79,11 +82,11 @@ Seq[Any](format.raw/*1.32*/("""
 object main extends main_Scope0.main
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 26 09:59:44 CST 2018
-                  SOURCE: /Users/juanpurata/Projects/play/play_example_blog/app/views/main.scala.html
-                  HASH: 51d2ab1755343d4a217bbab5a47af8eef8e0c6b3
-                  MATRIX: 748->1|873->31|901->33|978->84|1003->89|1096->156|1110->162|1162->194|1335->340|1350->346|1405->380|1466->414|1481->420|1544->462|1628->519|1643->525|1714->575|1798->632|1813->638|1887->691|1971->748|1986->754|2044->791|2161->881|2176->887|2241->930|2325->987|2340->993|2416->1047|2500->1104|2515->1110|2573->1147|2657->1204|2672->1210|2731->1248|3171->1661|3199->1668|3231->1673
-                  LINES: 27->1|32->1|34->3|38->7|38->7|39->8|39->8|39->8|41->10|41->10|41->10|42->11|42->11|42->11|43->12|43->12|43->12|44->13|44->13|44->13|45->14|45->14|45->14|47->16|47->16|47->16|48->17|48->17|48->17|49->18|49->18|49->18|50->19|50->19|50->19|59->28|59->28|60->29
+                  DATE: Mon Jan 29 01:49:01 CST 2018
+                  SOURCE: /Users/Juan/Projects/play/testLynxCompliance/app/views/main.scala.html
+                  HASH: 5aa58f4fea0e534189937407d040a40e1c5529f1
+                  MATRIX: 748->1|873->31|901->33|978->84|1003->89|1096->156|1110->162|1162->194|1321->326|1336->332|1399->374|1483->431|1498->437|1569->487|1653->544|1668->550|1742->603|1826->660|1841->666|1899->703|1983->760|1998->766|2054->801|2378->1098|2393->1104|2458->1147|2542->1204|2557->1210|2633->1264|2717->1321|2732->1327|2790->1364|2874->1421|2889->1427|2948->1465|3032->1522|3047->1528|3111->1570|3195->1627|3210->1633|3267->1669|3533->1908|3548->1914|3603->1948|3667->1986|3695->1993|3730->2001
+                  LINES: 27->1|32->1|34->3|38->7|38->7|39->8|39->8|39->8|42->11|42->11|42->11|43->12|43->12|43->12|44->13|44->13|44->13|45->14|45->14|45->14|46->15|46->15|46->15|50->19|50->19|50->19|51->20|51->20|51->20|52->21|52->21|52->21|53->22|53->22|53->22|54->23|54->23|54->23|55->24|55->24|55->24|58->27|58->27|58->27|61->30|61->30|62->31
                   -- GENERATED --
               */
           
